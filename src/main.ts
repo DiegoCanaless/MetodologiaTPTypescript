@@ -115,7 +115,6 @@ let productosOrdenados =  [...productos].sort((a, b) => a.precio - b.precio)
 console.log("Productos ordenados por precio: ", productosOrdenados)
 productos.push({id: 4, nombre: "Sea of Thieves", precio: 40, stock: 20})
 
-// Aqui tuve un problema con que al usar pop() me eliminar el ultimo elemento antes de que se muestre por consola antes de utilizar el metodo
 
 console.log("Ultimo juego del catalogo eliminado", productos.pop())
 
@@ -202,7 +201,6 @@ async function llamarApi(): Promise<any> {
         console.log("Llamando a la API...");
         const pokemon = await llamarApi();
         
-        // Comprobación básica de la estructura recibida
         if (pokemon && typeof pokemon === 'object') {
             console.log("Pokémon recibido:");
             console.log(`Nombre: ${pokemon.name || 'Desconocido'}`);
@@ -235,15 +233,12 @@ let arrayUsuarios: UsuarioFinal[] = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Crear el botón
     const button = document.createElement("button");
     let mostrarUsuarios = false;
     button.textContent = "Mostrar Usuarios";
 
-    // Crear la lista de usuarios
     const listaUsuarios = document.createElement("ul");
 
-    // Configurar el evento de clic del botón
     button.addEventListener("click", () => {
         mostrarUsuarios = !mostrarUsuarios;
         if (mostrarUsuarios) {
@@ -254,9 +249,9 @@ document.addEventListener("DOMContentLoaded", () => {
         renderUsuarios();
     });
 
-    // Función para renderizar la lista de usuarios
+
     function renderUsuarios() {
-        listaUsuarios.innerHTML = ""; // Limpiar la lista antes de renderizar
+        listaUsuarios.innerHTML = "";
 
         if (mostrarUsuarios) {
             arrayUsuarios.forEach(usuario => {
@@ -267,9 +262,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Agregar el botón al body primero
     document.body.appendChild(button);
-
-    // Luego agregar la lista de usuarios debajo
     document.body.appendChild(listaUsuarios);
 });
